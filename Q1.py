@@ -13,7 +13,7 @@ def reduce_intensity_levels(image, num_levels):
   image = image.astype(np.float32)
 
   # Calculate the normalization factor based on the number of levels
-  normalization_factor = 255 / (num_levels - 1)
+  normalization_factor = 255 / (num_levels-1)
 
   # Quantize the image by rounding and scaling
   reduced_image = np.round(image / normalization_factor) * normalization_factor
@@ -27,7 +27,7 @@ def reduce_intensity_levels(image, num_levels):
 image = cv2.imread('./images/lenna.jpg', cv2.IMREAD_GRAYSCALE)
 
 # Choose the desired number of intensity levels
-num_levels = 2
+num_levels = int(input("Enter a number[2 4 8 16 32 64 128]: "))
 
 reduced_image = reduce_intensity_levels(image, num_levels)
 
